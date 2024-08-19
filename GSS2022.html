@@ -1,0 +1,1108 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>11. GSS 2020 data &#8212; Python Lectures</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'GSS2022';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="10. Pandas" href="pandas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/dash_logo.png" class="logo__image only-light" alt="Python Lectures - Home"/>
+    <script>document.write(`<img src="_static/dash_logo.png" class="logo__image only-dark" alt="Python Lectures - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="about_py.html">1. About Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_by_example.html">3. An Introductory Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">4. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_essentials.html">5. Python Essentials</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Scientific Libraries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="need_for_speed.html">6. Python for Scientific Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy.html">7. NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlib.html">8. Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scipy.html">9. SciPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">10. Pandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python programming in sociology</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. GSS 2020 data</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/GSS2022.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>GSS 2020 data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">11.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-bivariate-analysis">11.1.1. Univariate/Bivariate analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-analysis">11.1.1.1. Univariate Analysis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bivariate-analysis">11.1.1.2. Bivariate Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1">11.1.2. Step 1:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2">11.1.3. Step 2:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anova">11.2. ANOVA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">11.2.1. Key Concepts:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-anova">11.2.2. Types of ANOVA:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-one-way-anova">11.2.3. Example of One-Way ANOVA:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-perform-anova">11.2.4. Steps to Perform ANOVA:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-reuslts">11.2.5. Interpreting the reuslts:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crosstab">11.3. Crosstab</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="gss-2020-data">
+<h1><span class="section-number">11. </span><span class="target" id="index-0"></span>GSS 2020 data<a class="headerlink" href="#gss-2020-data" title="Link to this heading">#</a></h1>
+<section id="overview">
+<span id="index-1"></span><h2><span class="section-number">11.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In this section we perform data analysis on 2020 GSS data. We cover the following concepts:</p>
+<ul class="simple">
+<li><p>Univariate/Bivariate analysis</p></li>
+<li><p>Data cleaning</p></li>
+<li><p>Data manipulation</p></li>
+<li><p>Anova</p></li>
+<li><p>etc</p></li>
+</ul>
+<section id="univariate-bivariate-analysis">
+<h3><span class="section-number">11.1.1. </span>Univariate/Bivariate analysis<a class="headerlink" href="#univariate-bivariate-analysis" title="Link to this heading">#</a></h3>
+<p>Univariate and bivariate analyses are essential steps in exploratory data analysis (EDA). They help you understand the distribution and relationships of variables in your dataset. Here’s a step-by-step guide for each:</p>
+<section id="univariate-analysis">
+<h4><span class="section-number">11.1.1.1. </span>Univariate Analysis<a class="headerlink" href="#univariate-analysis" title="Link to this heading">#</a></h4>
+<p>Univariate analysis examines the distribution of a single variable. The goal is to understand the central tendency, dispersion, and shape of the variable’s distribution.</p>
+<p>Steps:</p>
+<ol class="arabic simple">
+<li><p>Identify the Variable Type:</p>
+<ul class="simple">
+<li><p>Categorical (e.g., gender, color): Non-numeric data that represent categories.</p></li>
+<li><p>Numerical (e.g., age, income): Numeric data that can be discrete or continuous.</p></li>
+</ul>
+</li>
+<li><p>Descriptive Statistics:</p>
+<ul class="simple">
+<li><p>Categorical Variables:</p>
+<ul>
+<li><p>Frequency Distribution: Count the occurrences of each category.</p></li>
+<li><p>Mode: The category with the highest frequency.</p></li>
+</ul>
+</li>
+<li><p>Numerical Variables:</p>
+<ul>
+<li><p>Measures of Central Tendency: Mean, median, mode.</p></li>
+<li><p>Measures of Dispersion: Range, variance, standard deviation, interquartile range (IQR).</p></li>
+<li><p>Skewness &amp; Kurtosis: To assess the shape of the distribution.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Visualization:</p>
+<ul class="simple">
+<li><p>Categorical Variables:</p>
+<ul>
+<li><p>Bar Chart</p></li>
+<li><p>Pie Chart</p></li>
+</ul>
+</li>
+<li><p>Numerical Variables:</p>
+<ul>
+<li><p>Histogram</p></li>
+<li><p>Boxplot</p></li>
+<li><p>Density Plot</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Check for Outliers: (Numerical variables)</p>
+<ul class="simple">
+<li><p>Use boxplots or z-scores to identify and assess outliers.</p></li>
+</ul>
+</li>
+<li><p>Assess Distribution: (Numerical variables)</p>
+<ul class="simple">
+<li><p>Identify if the data is normally distributed or skewed using histograms and Q-Q plots.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="bivariate-analysis">
+<h4><span class="section-number">11.1.1.2. </span>Bivariate Analysis<a class="headerlink" href="#bivariate-analysis" title="Link to this heading">#</a></h4>
+<p>Bivariate analysis examines the relationship between two variables. The aim is to identify patterns, correlations, or associations between them.</p>
+<p>Steps:</p>
+<ol class="arabic simple">
+<li><p>Identify the Variable Types:</p>
+<ul class="simple">
+<li><p>Both Categorical</p></li>
+<li><p>Both Numerical</p></li>
+<li><p>One Categorical and One Numerical</p></li>
+</ul>
+</li>
+<li><p>Descriptive Statistics:</p>
+<ul class="simple">
+<li><p>Categorical vs. Categorical:</p>
+<ul>
+<li><p>Cross-tabulation: Create a contingency table to observe the frequency of combinations of categories.</p></li>
+<li><p>Chi-Square Test: Test the independence of the variables.</p></li>
+</ul>
+</li>
+<li><p>Numerical vs. Numerical:</p>
+<ul>
+<li><p>Correlation Coefficient: Use Pearson (linear relationships) or Spearman (non-linear relationships) to measure the strength and direction of the relationship.</p></li>
+<li><p>Covariance: Assess the direction of the relationship (positive or negative).</p></li>
+</ul>
+</li>
+<li><p>Categorical vs. Numerical:</p>
+<ul>
+<li><p>Group Statistics: Calculate summary statistics (mean, median, etc.) for the numerical variable across different categories.</p></li>
+<li><p>T-test or ANOVA: Test the difference in means between groups.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Visualization:</p>
+<ul class="simple">
+<li><p>Categorical vs. Categorical:</p>
+<ul>
+<li><p>Stacked Bar Chart</p></li>
+<li><p>Mosaic Plot</p></li>
+</ul>
+</li>
+<li><p>Numerical vs. Numerical:</p>
+<ul>
+<li><p>Scatter Plot</p></li>
+<li><p>Line Chart (if time-series data)</p></li>
+<li><p>Pair Plot (for multiple numerical variables)</p></li>
+</ul>
+</li>
+<li><p>Categorical vs. Numerical:</p>
+<ul>
+<li><p>Boxplot (by category)</p></li>
+<li><p>Violin Plot</p></li>
+<li><p>Bar Plot with error bars</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Identify Relationships:</p>
+<ul class="simple">
+<li><p>Categorical vs. Categorical: Look for patterns or significant associations in the contingency table.</p></li>
+<li><p>Numerical vs. Numerical: Look for trends, clusters, or correlations in the scatter plot.</p></li>
+<li><p>Categorical vs. Numerical: Check for differences in distributions or central tendencies across categories.</p></li>
+</ul>
+</li>
+<li><p>Hypothesis Testing:</p>
+<ul class="simple">
+<li><p>Conduct appropriate statistical tests to validate or reject hypotheses about the relationships between variables.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="step-1">
+<h3><span class="section-number">11.1.2. </span>Step 1:<a class="headerlink" href="#step-1" title="Link to this heading">#</a></h3>
+<p>If necessary, select your sample:
+For example we select those who’s age are 25+</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/Users/amirrezamousavi/Desktop/lisa/Microdata Coding Project/gss2020_small_new.csv&quot;</span><span class="p">)</span>
+<span class="n">filtered_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;AGEGR10&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can run a frequency table for agegr10  to check the sample selection was done correctly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frequency_table</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;AGEGR10&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">frequency_table</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AGEGR10
+3    6388
+4    5920
+5    6443
+6    5742
+7    3225
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also check to see if we have missing values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;number of missing values for each feature:&quot;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>number of missing values for each feature: PUMFID      0
+WGHT_PER    0
+AGEGR10     0
+MARSTAT     0
+PHSDFLG     0
+           ..
+LAN_01      0
+LANHSD_C    0
+LANCH_C     0
+INC_C       0
+FAMINC_C    0
+Length: 264, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-2">
+<h3><span class="section-number">11.1.3. </span>Step 2:<a class="headerlink" href="#step-2" title="Link to this heading">#</a></h3>
+<p>Removing missing values:</p>
+<p>In pandas, the <a class="reference internal" href="#'https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html'"><span class="xref myst">dropna()</span></a> method is used to remove missing values (i.e., NaN values) from a DataFrame or Series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove rows with any missing values</span>
+<span class="n">df_cleaned</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To obtain the frequency distribution of the variable vismin_c</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get frequency distribution</span>
+<span class="n">frequency_distribution</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;VISMIN_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">frequency_distribution</span><span class="p">)</span>               
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VISMIN_C
+10    15568
+99     2003
+5      1948
+7      1600
+6      1532
+1      1300
+2      1254
+8      1136
+3       636
+9       446
+4       295
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create new variable vismin2 as a copy of vismin_c</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;vismin2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;VISMIN_C&#39;</span><span class="p">]</span>             
+</pre></div>
+</div>
+</div>
+</div>
+<p>recode vismin2(1 thru 9=1)(10=0)(999=sysmis).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># Recode values</span>
+<span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;vismin2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;vismin2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="mi">999</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">})</span>  <span class="c1"># Set 999 to NaN (sysmis)</span>
+<span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;vismin2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;vismin2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">9</span> <span class="k">else</span> <span class="p">(</span><span class="mi">0</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">10</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">))</span>        
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the next step we give value label to each category of the new var vismin2.
+Value labels vismin2 0’not a visible minority’ 1’visible minority’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Not a Visible Minority&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Visible Minority&#39;</span><span class="p">}</span>
+<span class="c1"># Apply labels</span>
+<span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;vismin2_label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;vismin2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>     
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this section as an example we reverse code GEN_01 variable.
+recode genhealth_rev(1=5)(2=4)(3=3)(4=2)(5=1)(9=sysmis).
+value labels genhealth_rev 1’poor’ 2’fair’ 3’good’ 4’very good’ 5’excellent’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reverse code the variable</span>
+<span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;genhealth_rev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;GEN_01&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="mi">9</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">})</span>  <span class="c1"># Set 9 to NaN (sysmis)</span>
+<span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;genhealth_rev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;genhealth_rev&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">6</span> <span class="o">-</span> <span class="n">x</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+<span class="c1"># Define labels</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Poor&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;Fair&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;Good&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;Very Good&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;Excellent&#39;</span><span class="p">}</span>
+
+<span class="c1"># Apply labels</span>
+<span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;genhealth_rev_label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;genhealth_rev&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since ratio variables are limited in the GSS data I am recoding SCF100_C (ordinal) into a ratio</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;numfriends&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;SCF100_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="mi">9</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">})</span>  <span class="c1"># Assuming 9 indicates missing values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>recode numfriends(10=14.5)(11=24.5)(12=30)(999=sysmis).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;numfriends&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;numfriends&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
+    <span class="mi">10</span><span class="p">:</span> <span class="mf">14.5</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">:</span> <span class="mf">24.5</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="mi">999</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>  <span class="c1"># Treat 999 as missing</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To analyze the ‘numfriends’ variable and its relationship with ‘SCF100_C’, you need to generate a frequency distribution and a cross-tabulation table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Frequencies</span>
+<span class="n">frequency_distribution</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;numfriends&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Frequencies of numfriends:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">frequency_distribution</span><span class="p">)</span>
+
+<span class="c1"># Cross-tabulation</span>
+<span class="n">crosstab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;numfriends&#39;</span><span class="p">],</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;SCF100_C&#39;</span><span class="p">],</span> <span class="n">rownames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;numfriends&#39;</span><span class="p">],</span> <span class="n">colnames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SCF100_C&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cross-tabulation of numfriends by SCF100_C:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">crosstab</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frequencies of numfriends:
+numfriends
+2.0     5170
+3.0     3916
+5.0     3135
+1.0     3067
+4.0     2935
+0.0     2689
+14.5    2548
+6.0     1706
+8.0      827
+7.0      532
+24.5     523
+NaN      449
+30.0     221
+Name: count, dtype: int64
+
+Cross-tabulation of numfriends by SCF100_C:
+SCF100_C      0     1     2     3     4     5     6    7    8     10   11   12
+numfriends                                                                    
+0.0         2689     0     0     0     0     0     0    0    0     0    0    0
+1.0            0  3067     0     0     0     0     0    0    0     0    0    0
+2.0            0     0  5170     0     0     0     0    0    0     0    0    0
+3.0            0     0     0  3916     0     0     0    0    0     0    0    0
+4.0            0     0     0     0  2935     0     0    0    0     0    0    0
+5.0            0     0     0     0     0  3135     0    0    0     0    0    0
+6.0            0     0     0     0     0     0  1706    0    0     0    0    0
+7.0            0     0     0     0     0     0     0  532    0     0    0    0
+8.0            0     0     0     0     0     0     0    0  827     0    0    0
+14.5           0     0     0     0     0     0     0    0    0  2548    0    0
+24.5           0     0     0     0     0     0     0    0    0     0  523    0
+30.0           0     0     0     0     0     0     0    0    0     0    0  221
+</pre></div>
+</div>
+</div>
+</div>
+<p>For univariate analysis of a ratio variable such as numfriends, you can calculate various descriptive statistics including frequencies, mean, median, standard deviation, and mode:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Frequencies</span>
+<span class="n">frequency_distribution</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;numfriends&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Descriptive statistics</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;numfriends&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">median</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;numfriends&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">stddev</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;numfriends&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">mode</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;numfriends&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># mode() returns a Series, take the values</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Frequencies of numfriends:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">frequency_distribution</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Descriptive Statistics for numfriends:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean: </span><span class="si">{</span><span class="n">mean</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Median: </span><span class="si">{</span><span class="n">median</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Standard Deviation: </span><span class="si">{</span><span class="n">stddev</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mode: </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frequencies of numfriends:
+numfriends
+2.0     5170
+3.0     3916
+5.0     3135
+1.0     3067
+4.0     2935
+0.0     2689
+14.5    2548
+6.0     1706
+8.0      827
+7.0      532
+24.5     523
+NaN      449
+30.0     221
+Name: count, dtype: int64
+
+Descriptive Statistics for numfriends:
+Mean: 4.750284205508086
+Median: 3.0
+Standard Deviation: 5.272239825076114
+Mode: [2.]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bivariate analysis:
+t-test (comparing mean # of friends between visible minority and non-visible minority).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="c1"># Split data into two groups</span>
+<span class="n">group1</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;vismin2_label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Not a Visible Minority&#39;</span><span class="p">][</span><span class="s1">&#39;numfriends&#39;</span><span class="p">]</span>
+<span class="n">group2</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;vismin2_label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Visible Minority&#39;</span><span class="p">][</span><span class="s1">&#39;numfriends&#39;</span><span class="p">]</span>
+
+<span class="c1"># Perform the t-test</span>
+<span class="n">t_stat</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">,</span> <span class="n">nan_policy</span><span class="o">=</span><span class="s1">&#39;omit&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T-test Results:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;T-statistic: </span><span class="si">{</span><span class="n">t_stat</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P-value: </span><span class="si">{</span><span class="n">p_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T-test Results:
+T-statistic: 10.102743758610377
+P-value: 5.9640357996091385e-24
+</pre></div>
+</div>
+</div>
+</div>
+<p>t-test groups vismin2(0 1)/variables numfriends:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="c1"># Split data into two groups</span>
+<span class="n">group1</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;vismin2&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">][</span><span class="s1">&#39;numfriends&#39;</span><span class="p">]</span>
+<span class="n">group2</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;vismin2&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">][</span><span class="s1">&#39;numfriends&#39;</span><span class="p">]</span>
+
+<span class="c1"># Perform the t-test</span>
+<span class="n">t_stat</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">,</span> <span class="n">nan_policy</span><span class="o">=</span><span class="s1">&#39;omit&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T-test Results:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;T-statistic: </span><span class="si">{</span><span class="n">t_stat</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P-value: </span><span class="si">{</span><span class="n">p_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T-test Results:
+T-statistic: 10.102743758610377
+P-value: 5.9640357996091385e-24
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="anova">
+<h2><span class="section-number">11.2. </span>ANOVA<a class="headerlink" href="#anova" title="Link to this heading">#</a></h2>
+<p>ANOVA, or Analysis of Variance, is a statistical technique used to determine if there are any statistically significant differences between the means of three or more independent groups. It is commonly used when comparing more than two groups to see if at least one group mean is different from the others.</p>
+<section id="key-concepts">
+<h3><span class="section-number">11.2.1. </span>Key Concepts:<a class="headerlink" href="#key-concepts" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Null Hypothesis (H0): Assumes that all group means are equal.</p></li>
+<li><p>Alternative Hypothesis (H1): Assumes that at least one group mean is different.</p></li>
+<li><p>F-statistic: The ratio of the variance between the group means to the variance within the groups. A higher F-statistic suggests that the group means are not all the same.</p></li>
+<li><p>p-value: Helps determine the significance of the results. A p-value less than a chosen significance level (e.g., 0.05) leads to rejection of the null hypothesis.</p></li>
+</ul>
+</section>
+<section id="types-of-anova">
+<h3><span class="section-number">11.2.2. </span>Types of ANOVA:<a class="headerlink" href="#types-of-anova" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>One-Way ANOVA: Compares the means of three or more independent groups based on one independent variable.</p></li>
+<li><p>Two-Way ANOVA: Examines the influence of two different independent variables on the dependent variable and can also assess the interaction between these variables.</p></li>
+<li><p>Repeated Measures ANOVA: Used when the same subjects are tested under different conditions (e.g., time points).</p></li>
+</ol>
+</section>
+<section id="example-of-one-way-anova">
+<h3><span class="section-number">11.2.3. </span>Example of One-Way ANOVA:<a class="headerlink" href="#example-of-one-way-anova" title="Link to this heading">#</a></h3>
+<p>Imagine a study where researchers want to test the effect of different diets on weight loss. The independent variable is the type of diet (e.g., Diet A, Diet B, Diet C), and the dependent variable is weight loss. ANOVA can determine if there is a statistically significant difference in weight loss between the diet groups.</p>
+</section>
+<section id="steps-to-perform-anova">
+<h3><span class="section-number">11.2.4. </span>Steps to Perform ANOVA:<a class="headerlink" href="#steps-to-perform-anova" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>State the hypotheses: Formulate the null and alternative hypotheses.</p></li>
+<li><p>Calculate the F-statistic: Use statistical software or formulas to compute the F-statistic.</p></li>
+<li><p>Compare the F-statistic to the critical value: Determine whether to reject or fail to reject the null hypothesis.</p></li>
+<li><p>Post hoc tests (if necessary): If ANOVA indicates a significant difference, post hoc tests (like Tukey’s HSD) can determine which specific groups are different.</p></li>
+</ol>
+<p>For our dataframe we want to compare mean # of friends between racial groups (original vismin_c).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="c1"># Drop rows with NaN values in the relevant columns</span>
+<span class="n">anova_data</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[[</span><span class="s1">&#39;numfriends&#39;</span><span class="p">,</span> <span class="s1">&#39;VISMIN_C&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1"># Perform one-way ANOVA</span>
+<span class="n">anova_results</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">f_oneway</span><span class="p">(</span>
+   <span class="o">*</span><span class="p">[</span><span class="n">anova_data</span><span class="p">[</span><span class="s1">&#39;numfriends&#39;</span><span class="p">][</span><span class="n">anova_data</span><span class="p">[</span><span class="s1">&#39;VISMIN_C&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">group</span><span class="p">]</span> <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">anova_data</span><span class="p">[</span><span class="s1">&#39;VISMIN_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()]</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ANOVA F-statistic:&quot;</span><span class="p">,</span> <span class="n">anova_results</span><span class="o">.</span><span class="n">statistic</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ANOVA p-value:&quot;</span><span class="p">,</span> <span class="n">anova_results</span><span class="o">.</span><span class="n">pvalue</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ANOVA F-statistic: 20.016378312830568
+ANOVA p-value: 2.0899985562466142e-37
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="interpreting-the-reuslts">
+<h3><span class="section-number">11.2.5. </span>Interpreting the reuslts:<a class="headerlink" href="#interpreting-the-reuslts" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>F-statistic: This tells you whether there is a statistically significant difference in the means across the groups.</p></li>
+<li><p>p-value: If the p-value is below a certain threshold (commonly 0.05), you can reject the null hypothesis that the means are equal across the groups</p></li>
+</ul>
+</section>
+</section>
+<section id="crosstab">
+<h2><span class="section-number">11.3. </span>Crosstab<a class="headerlink" href="#crosstab" title="Link to this heading">#</a></h2>
+<p>In this section we perform crosstab for nominal (visible minority) and ordinal variable (highest degree).</p>
+<ol class="arabic simple">
+<li><p>create crosstab:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">crosstab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;ED_05&#39;</span><span class="p">],</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;VISMIN_C&#39;</span><span class="p">],</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">crosstab</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VISMIN_C         1         2         3         4         5         6  \
+ED_05                                                                  
+1         0.133846  0.192982  0.114780  0.010169  0.109856  0.089426   
+2         0.287692  0.234450  0.283019  0.088136  0.141170  0.200392   
+3         0.041538  0.042265  0.075472  0.077966  0.044148  0.075065   
+4         0.116154  0.125997  0.183962  0.186441  0.109856  0.156005   
+5         0.048462  0.057416  0.051887  0.122034  0.069815  0.052219   
+6         0.190000  0.197767  0.130503  0.427119  0.289528  0.224543   
+7         0.172308  0.138756  0.144654  0.054237  0.221766  0.186031   
+99        0.010000  0.010367  0.015723  0.033898  0.013860  0.016319   
+
+VISMIN_C         7         8         9        10        99       All  
+ED_05                                                                 
+1         0.214375  0.069542  0.134529  0.096608  0.108337  0.109892  
+2         0.226250  0.174296  0.253363  0.213965  0.210185  0.212173  
+3         0.059375  0.037852  0.044843  0.109584  0.057913  0.085107  
+4         0.146250  0.112676  0.139013  0.202274  0.110834  0.170611  
+5         0.049375  0.049296  0.069507  0.053700  0.043934  0.054477  
+6         0.188750  0.257923  0.230942  0.179471  0.158263  0.195577  
+7         0.101875  0.292254  0.112108  0.121017  0.131303  0.141244  
+99        0.013750  0.006162  0.015695  0.023381  0.179231  0.030919  
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Chi-Square Test</p></li>
+</ol>
+<p>To assess the association between the two variables, you can perform a chi-square test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2_contingency</span>
+<span class="n">chi2</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dof</span><span class="p">,</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">chi2_contingency</span><span class="p">(</span><span class="n">crosstab</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chi-Square Test Statistic: </span><span class="si">{</span><span class="n">chi2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P-value: </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Degrees of Freedom: </span><span class="si">{</span><span class="n">dof</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chi-Square Test Statistic: 1.1965048877363103
+P-value: 1.0
+Degrees of Freedom: 60
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Interpret the Results:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Chi-Square Statistic: Measures how the observed counts diverge from the expected counts.</p></li>
+<li><p>P-value: If this value is below 0.05, it suggests a statistically significant association between the two variables.</p></li>
+<li><p>Degrees of Freedom (DoF): This is calculated based on the number of categories in each variable.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pandas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Pandas</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">11.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-bivariate-analysis">11.1.1. Univariate/Bivariate analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-analysis">11.1.1.1. Univariate Analysis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bivariate-analysis">11.1.1.2. Bivariate Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1">11.1.2. Step 1:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2">11.1.3. Step 2:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anova">11.2. ANOVA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">11.2.1. Key Concepts:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-anova">11.2.2. Types of ANOVA:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-one-way-anova">11.2.3. Example of One-Way ANOVA:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-perform-anova">11.2.4. Steps to Perform ANOVA:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-reuslts">11.2.5. Interpreting the reuslts:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crosstab">11.3. Crosstab</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DASH (Data Analysis Support Hub)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
